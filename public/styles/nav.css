@@ -1,0 +1,27 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  height: 120px;
+  padding: 0 1.5em;
+
+  background: #4056A1;
+  color: #FFFFFF;
+}
+
+#tweeter {
+  align-self: flex-end;
+  margin-bottom: 0.7em;
+
+  font-size: 40px;
+  font-family: Bungee, sans-serif;
+ }
+
+ #new-tweet {
+   font-size: 30px;
+   border-width: 1px;
+   border-style: dotted;
+   border-color: white;
+ }
