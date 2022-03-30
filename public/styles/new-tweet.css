@@ -1,0 +1,46 @@
+.container > .new-tweet {
+  margin-top: 40px;
+}
+
+#tweet-text {
+  width: 100%;
+  height: 50px;
+
+  outline: none;
+  resize: none;
+  
+  background-color: inherit;
+  border: 0;
+  border-bottom: 3px solid #362C2C;
+
+  color: #362C2C;
+  font-size: 20px;
+}
+
+#tweet-text::placeholder {
+  color: #362C2C;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.new-tweet > form > div {
+  margin-top: 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-tweet > form > div > button {
+  padding: 5px 10px;
+  border: 0;
+
+  background-color: #4056A1;
+  font-family: Bungee, sans-serif;
+  color: white;
+}
+
+.new-tweet > form > div > .counter {
+  font-family: Bungee, sans-serif;
+  color: #362C2C;
+}
