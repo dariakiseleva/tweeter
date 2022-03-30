@@ -51,16 +51,14 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <!-- <h2>Compose Tweet</h2> ///// this is not in the model images??????? --> 
-        <form>
-          <!-- <label for="tweet-text">What are you humming about?</label> -->
+        <form action="/tweets" method="post" enctype="application/x-www-form-urlencoded">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div>
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-      </section>     <br><br> <br> <br> <br> <!--Delete later--> 
+      </section>
     </main>
   </body>
 </html>
