@@ -1,11 +1,19 @@
-//Responsible for character counter
+/////Responsible for updating the character counter when the user types in the form
+
+
 
 ////----------CALLBACK FUNCTIONS
 
-const testCallback = function(event){
-  const chars = $(this).val().length;
-  const remChars = 140 - chars;
-  console.log(remChars);
+const updateCounter = function(event){
+
+  //Read # chars from textarea and calculate remaining characters
+  const chars = $(this).val().length; 
+  const remChars = 140 - chars; 
+
+  //Access the counter element and edit its value to remaining characters
+  const counter = $(this).parent().find('div > .counter')
+  counter.text(remChars);
+
 }
 
 
@@ -15,7 +23,7 @@ const testCallback = function(event){
 $(document).ready(function() {
 
   $( "#tweet-text" )
-  .on('input', testCallback);
+  .on('input', updateCounter);
 
 });
 
