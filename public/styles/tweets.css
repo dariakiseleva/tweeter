@@ -17,8 +17,7 @@
 }
 
 .tweet:hover{
-  box-shadow: 10px 10px 0px -2px rgba(64,86,161,0.29)
-
+  box-shadow: 10px 10px 0px -2px rgba(64,86,161,0.29);
 }
 
 /* Header area of tweet containing avatar, username, and userhandle */
@@ -39,7 +38,7 @@
 }
 
 .userhandle{
-  color: lightgrey;
+  color:  rgba(64,86,161,0.29);
   font-weight: bold;
 }
 
