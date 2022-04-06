@@ -17,8 +17,32 @@ const tweetData =  {
   "created_at": 1461116232227
 }
 
+const data = [
+  {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png"
+      ,
+      "handle": "@SirIsaac"
+    },
+    "content": {
+      "text": "If I have seen further it is by standing on the shoulders of giants"
+    },
+    "created_at": 1461116232227
+  },
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd" },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1461113959088
+  }
+]
 
-
+//Converts creation time in ms to days ago from current time
 const calculateDaysAgo = (msCreated) => {
 
   const msInDay = 1000 * 60 * 60 * 24;
@@ -30,9 +54,10 @@ const calculateDaysAgo = (msCreated) => {
   return daysAgo;
 }
 
+//Creates a tweet HTML element from data object with tweet info
 const createTweetElement = (data) => {
   const daysAgo = calculateDaysAgo(data.created_at);
-  const element = `
+  const $tweet = $(`
     <article class="tweet">
     <header>
       <div>
@@ -51,16 +76,20 @@ const createTweetElement = (data) => {
       </div>
     </footer>
   </article>
-  `
-  return element;
+  `);
+
+  return $tweet;
 }
 
+
+//Takes array of objects with info about tweets, calls createTweetElemenet and appends resulting HTML to the page
+const renderTweets = function(tweets) {
+  for (let tweet of tweets){
+    $('#tweet-container').append(createTweetElement(tweet));
+  }
+}
+
+
 $(()=> {
-
-  console.log(tweetData);
-	const $tweet = createTweetElement(tweetData);
-
-  // Test / driver code (temporary)
-  //console.log($tweet); // to see what it looks like
-  $('#tweet-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  renderTweets(data);
 });
