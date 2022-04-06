@@ -19,8 +19,19 @@ const tweetData =  {
 
 
 
+const calculateDaysAgo = (msCreated) => {
+
+  const msInDay = 1000 * 60 * 60 * 24;
+
+  const msNow = Date.now();
+  const msAgo = msNow - msCreated;
+  const daysAgo = Math.floor(msAgo/msInDay);
+
+  return daysAgo;
+}
+
 const createTweetElement = (data) => {
-  console.log(data.user.avatars);
+  const daysAgo = calculateDaysAgo(data.created_at);
   const element = `
     <article class="tweet">
     <header>
@@ -32,7 +43,7 @@ const createTweetElement = (data) => {
     </header>
     <p>${data.content.text}</p>
     <footer>
-      <div class="days-ago">${data.created_at} days ago</div>
+      <div class="days-ago">${daysAgo} ${daysAgo==1 ? "day" : "days"} ago</div>
       <div class="tweet-actions">
         <i class="fa-solid fa-flag"></i>
         <i class="fa-solid fa-retweet"></i>
@@ -50,6 +61,6 @@ $(()=> {
 	const $tweet = createTweetElement(tweetData);
 
   // Test / driver code (temporary)
-  console.log($tweet); // to see what it looks like
+  //console.log($tweet); // to see what it looks like
   $('#tweet-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 });
