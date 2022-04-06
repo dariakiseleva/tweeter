@@ -4,42 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-//---Helper constant data
-const tweetData =  {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-  "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-  "created_at": 1461116232227
-}
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
 
 //Converts creation time in ms to days ago from current time
 const calculateDaysAgo = (msCreated) => {
@@ -83,23 +47,32 @@ const createTweetElement = (data) => {
 
 //Takes array of objects with info about tweets, calls createTweetElemenet and appends resulting HTML to the page
 const renderTweets = function(tweets) {
+  $('#tweet-container').empty();
   for (let tweet of tweets){
     $('#tweet-container').append(createTweetElement(tweet));
   }
 }
 
-
+//Prevent the form from changing page on submission and send an AJAX post request with the data
 const handleFormSubmission = () => {
   $('main > .new-tweet > form').submit((event) => {
     event.preventDefault();
     const submission = $('main > .new-tweet > form').serialize();
-    $.ajax({url: '/tweets', method: 'POST', data: submission});
+    $.ajax({url: '/tweets', method: 'POST', dataType: "xhr", data: submission});
+
   });
+}
+
+//Make AJAX request to the server to get tweets, then send them to render
+const loadTweets = () => {
+  $.ajax('/tweets', { method: 'GET' })
+    .then((tweetsJSON) => {
+      renderTweets(tweetsJSON);
+    });
 }
 
 //-----Execute after loading DOM
 $(()=> {
-  renderTweets(data);
   handleFormSubmission();
-  //$.post("/tweets", tweetForm.serialize(),
+  loadTweets();
 });
