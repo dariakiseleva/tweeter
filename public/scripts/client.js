@@ -92,6 +92,8 @@ const renderTweets = function(tweets) {
 const handleFormSubmission = () => {
   $('main > .new-tweet > form').submit((event) => {
     event.preventDefault();
+    const submission = $('main > .new-tweet > form').serialize();
+    $.ajax({url: '/tweets', method: 'POST', data: submission});
   });
 }
 
@@ -99,4 +101,5 @@ const handleFormSubmission = () => {
 $(()=> {
   renderTweets(data);
   handleFormSubmission();
+  //$.post("/tweets", tweetForm.serialize(),
 });
