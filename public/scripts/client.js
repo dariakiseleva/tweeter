@@ -4,22 +4,9 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
-//Converts creation time in ms to days ago from current time
-const calculateDaysAgo = (msCreated) => {
-
-  const msInDay = 1000 * 60 * 60 * 24;
-
-  const msNow = Date.now();
-  const msAgo = msNow - msCreated;
-  const daysAgo = Math.floor(msAgo/msInDay);
-
-  return daysAgo;
-}
-
 //Creates a tweet HTML element from data object with tweet info
 const createTweetElement = (data) => {
-  const daysAgo = calculateDaysAgo(data.created_at);
+  const timeAgo = timeago.format(data.created_at);
   const $tweet = $(`
     <article class="tweet">
     <header>
@@ -31,7 +18,7 @@ const createTweetElement = (data) => {
     </header>
     <p>${data.content.text}</p>
     <footer>
-      <div class="days-ago">${daysAgo} ${daysAgo==1 ? "day" : "days"} ago</div>
+      <div class="days-ago">${timeAgo}</div>
       <div class="tweet-actions">
         <i class="fa-solid fa-flag"></i>
         <i class="fa-solid fa-retweet"></i>
