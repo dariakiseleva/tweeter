@@ -52,9 +52,9 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <!-- TWEET FORM -->
+      <!-- SUBMIT FORM -->
       <section class="new-tweet">
-        <form action="/tweets" method="post" enctype="application/x-www-form-urlencoded">
+        <form action="/tweets" method="POST" enctype="application/x-www-form-urlencoded">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div>
             <button type="submit">Tweet</button>
@@ -63,7 +63,7 @@
         </form>
       </section>
 
-      <!-- TWEET FORM -->
+      <!-- POSTED TWEETS -->
       <section id="tweet-container">
 
         <!-- SINGLE TWEET -->

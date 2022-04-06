@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
+//---Helper constant data
 const tweetData =  {
   "user": {
     "name": "Newton",
@@ -16,7 +16,6 @@ const tweetData =  {
     },
   "created_at": 1461116232227
 }
-
 const data = [
   {
     "user": {
@@ -90,6 +89,14 @@ const renderTweets = function(tweets) {
 }
 
 
+const handleFormSubmission = () => {
+  $('main > .new-tweet > form').submit((event) => {
+    event.preventDefault();
+  });
+}
+
+//-----Execute after loading DOM
 $(()=> {
   renderTweets(data);
+  handleFormSubmission();
 });
