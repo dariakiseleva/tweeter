@@ -1,28 +1,25 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+//Prevent Cross-Site Scripting via text content
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 
 //Creates a tweet HTML element from data object with tweet info
 const createTweetElement = (data) => {
   const timeAgo = timeago.format(data.created_at);
-
-  //Prevent Cross-Site Scripting via text content
-  let temp_div = document.createElement("div");
-  temp_div.appendChild(document.createTextNode(data.content.text));
-  const tweetContent = temp_div.innerHTML;
-
+  
   const $tweet = $(`
     <article class="tweet">
     <header>
       <div>
-        <img src=${data.user.avatars} class="usericon">
-        <div class="username">${data.user.name}</div>
+        <img src=${escape(data.user.avatars)} class="usericon">
+        <div class="username">${escape(data.user.name)}</div>
       </div>
-      <div class="userhandle">${data.user.handle}</div>
+      <div class="userhandle">${escape(data.user.handle)}</div>
     </header>
-    <p>${tweetContent}</p>
+    <p>${escape(data.content.text)}</p>
     <footer>
       <div class="days-ago">${timeAgo}</div>
       <div class="tweet-actions">
@@ -34,11 +31,8 @@ const createTweetElement = (data) => {
   </article>
   `);
 
-  // $tweet("p").text(data.content.text);
-
   return $tweet;
 }
-
 
 //Takes re-renders all tweets in the container
 const renderTweets = function(tweets) {
