@@ -1,7 +1,9 @@
+/* Everything within the new tweet area */
 .container > .new-tweet {
   margin-top: 40px;
 }
 
+/* The textarea where the user types */
 #tweet-text {
   width: 100%;
   height: 50px;
@@ -17,11 +19,14 @@
   font-size: 20px;
 }
 
+/* "What are you humming about?" */
 #tweet-text::placeholder {
   color: #362C2C;
   font-weight: bold;
   font-size: 25px;
 }
+
+/* Below the input area which inludes the button and the counter */
 
 .new-tweet > form > div {
   margin-top: 40px;
@@ -43,4 +48,23 @@
 .new-tweet > form > div > .counter {
   font-family: Bungee, sans-serif;
   color: #362C2C;
+}
+
+/* Error message displayed above the input area */
+
+#error-message{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-bottom: 25px;
+  padding-left: 15px;
+
+  color: #6d0000;
+  background-color: rgb(109, 0, 0, 0.3);
+  border: 2px solid #6d0000;
+}
+
+#error-message > p, i {
+  margin: 15px 0;
 }
