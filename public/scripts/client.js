@@ -7,6 +7,12 @@
 //Creates a tweet HTML element from data object with tweet info
 const createTweetElement = (data) => {
   const timeAgo = timeago.format(data.created_at);
+
+  //Prevent Cross-Site Scripting via text content
+  let temp_div = document.createElement("div");
+  temp_div.appendChild(document.createTextNode(data.content.text));
+  const tweetContent = temp_div.innerHTML;
+
   const $tweet = $(`
     <article class="tweet">
     <header>
@@ -16,7 +22,7 @@ const createTweetElement = (data) => {
       </div>
       <div class="userhandle">${data.user.handle}</div>
     </header>
-    <p>${data.content.text}</p>
+    <p>${tweetContent}</p>
     <footer>
       <div class="days-ago">${timeAgo}</div>
       <div class="tweet-actions">
@@ -28,11 +34,13 @@ const createTweetElement = (data) => {
   </article>
   `);
 
+  // $tweet("p").text(data.content.text);
+
   return $tweet;
 }
 
 
-//Takes array of objects with info about tweets, calls createTweetElemenet and appends resulting HTML to the page
+//Takes re-renders all tweets in the container
 const renderTweets = function(tweets) {
   $('#tweet-container').empty();
   for (let tweet of tweets.reverse()){
