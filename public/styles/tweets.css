@@ -50,6 +50,7 @@
 .tweet > p {
   margin: 0;
   padding: 30px 15px;
+  overflow-wrap: break-word;
 
   font-weight: bold;
 }
