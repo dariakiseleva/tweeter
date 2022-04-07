@@ -9,7 +9,7 @@ const escape = function (str) {
 //Creates a tweet HTML element from data object with tweet info
 const createTweetElement = (data) => {
   const timeAgo = timeago.format(data.created_at);
-  
+
   const $tweet = $(`
     <article class="tweet">
     <header>
@@ -42,9 +42,24 @@ const renderTweets = function(tweets) {
   }
 }
 
+const errorMessage = (command, errorText) => {
+  if (command==="display"){
+    const $errorHTML = `
+    <div id="error-message">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <p>
+      <b>Error: </b>${errorText}
+    </p>
+    </div>
+  `
+    $('#new-tweet').prepend($errorHTML);
+  }
+}
+
+
 //Prevent the form from changing page on submission and send an AJAX post request with the data
 const handleFormSubmission = () => {
-  $('main > .new-tweet > form').submit((event) => {
+  $('main > #new-tweet > form').submit((event) => {
 
     //Prevent form submission that refreshes page
     event.preventDefault();
@@ -52,13 +67,15 @@ const handleFormSubmission = () => {
     //Validate that tweet input is not empty or too long
     const userInput = $("#tweet-text").val();
     if (userInput.length==0) {
-      return alert("Tweet can not be empty.");
+      const errorText = "tweet can not be empty."
+      return errorMessage("display", errorText);
     } else if (userInput.length > 140){
-      return alert("Tweet can not exceed 140 characters");
+      const errorText = "tweet can not exceed 140 characters."
+      return errorMessage("display", errorText);
     }
 
     //Post the tweet to server
-    const submission = $('main > .new-tweet > form').serialize();
+    const submission = $('main > #new-tweet > form').serialize();
     $.ajax({url: '/tweets', method: 'POST', dataType: "xhr", data: submission});
 
     //Refresh tweets

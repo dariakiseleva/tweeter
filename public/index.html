@@ -55,14 +55,7 @@
     <!-- Main -->
     <main class="container">
       <!-- SUBMIT FORM -->
-      <section class="new-tweet">
-
-        <div id="error-message">
-          <i class="fa-solid fa-circle-exclamation"></i>
-          <p>
-            This is an error message!
-          </p>
-        </div>
+      <section id="new-tweet">
 
         <form action="/tweets" method="POST" enctype="application/x-www-form-urlencoded">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
@@ -75,48 +68,7 @@
 
       <!-- POSTED TWEETS -->
       <section id="tweet-container">
-
-        <!-- SINGLE TWEET -->
-        <!-- <article class="tweet">
-          <header>
-            <div>
-              <img src="./images/girl-avatar.png" class="usericon">
-              <div class="username">Rhonda Jacobs</div>
-            </div>
-            <div class="userhandle">@MrsJacobs</div>
-          </header>
-          <p>HelloWorld</p>
-          <footer>
-            <div class="days-ago">10 days ago</div>
-            <div class="tweet-actions">
-              <i class="fa-solid fa-flag"></i>
-              <i class="fa-solid fa-retweet"></i>
-              <i class="fa-solid fa-heart"></i>
-            </div>
-          </footer>
-        </article> -->
-
-        <!-- SINGLE TWEET -->
-        <!-- <article class="tweet">
-          <header>
-            <div>
-              <img src="./images/boy-avatar.png" class="usericon">
-              <div class="username">Newton</div>
-            </div>
-            <div class="userhandle">@SirIsaac</div>
-          </header>
-          <p>If I have seen further it is by standing on the shoulders of giants.</p>
-          <footer>
-            <div class="days-ago">10 days ago</div>
-            <div class="tweet-actions">
-              <i class="fa-solid fa-flag"></i>
-              <i class="fa-solid fa-retweet"></i>
-              <i class="fa-solid fa-heart"></i>
-            </div>
-          </footer>
-        </article> -->
-
-
+        <!-- Tweets are loaded here with AJAX -->
       </section>
 
 

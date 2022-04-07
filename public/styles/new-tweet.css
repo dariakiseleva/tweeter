@@ -1,5 +1,5 @@
 /* Everything within the new tweet area */
-.container > .new-tweet {
+.container > #new-tweet {
   margin-top: 40px;
 }
 
@@ -28,7 +28,7 @@
 
 /* Below the input area which inludes the button and the counter */
 
-.new-tweet > form > div {
+#new-tweet > form > div {
   margin-top: 40px;
 
   display: flex;
@@ -36,7 +36,7 @@
   align-items: center;
 }
 
-.new-tweet > form > div > button {
+#new-tweet > form > div > button {
   padding: 5px 10px;
   border: 0;
 
@@ -45,7 +45,7 @@
   color: white;
 }
 
-.new-tweet > form > div > .counter {
+#new-tweet > form > div > .counter {
   font-family: Bungee, sans-serif;
   color: #362C2C;
 }
