@@ -42,6 +42,7 @@ const renderTweets = function(tweets) {
   }
 }
 
+//Either display a passed error message, or hide existing error message
 const errorMessage = (command, errorText) => {
   if (command==="display") {
     $('#error-message').slideUp();

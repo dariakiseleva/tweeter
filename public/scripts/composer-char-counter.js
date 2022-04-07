@@ -1,8 +1,4 @@
-/////Responsible for updating the character counter when the user types in the form
-
-
-
-////----------CALLBACK FUNCTIONS
+//Function to character counter when the user types in the form
 
 const updateCounter = function(){
 
@@ -24,14 +20,9 @@ const updateCounter = function(){
 }
 
 
-
-////----------EXECUTE
-
-$(document).ready(function() {
-
-  $( "#tweet-text" )
-  .on('input', updateCounter);
-
+//-----Execute after loading DOM
+$(()=> {
+  $("#tweet-text").on('input', updateCounter);
 });
 
 

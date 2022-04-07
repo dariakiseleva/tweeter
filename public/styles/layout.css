@@ -22,7 +22,7 @@ body {
 }
 
 main.container{
-  margin: 0 auto; /*This centers <main> inside its parent - <body>*/
+  margin: 0 auto; 
   width: 90%;
   height: 100px;
   background-color: inherit;

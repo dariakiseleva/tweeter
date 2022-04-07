@@ -33,16 +33,16 @@
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
+    <!-- Top nav bar-->
     <nav>
       <span id="tweeter">tweeter</span>
       <span id="nav-right-side">
         <span id="write-new-tweet"><b>Write</b> a new tweet</span>
         <i class="fa-solid fa-angles-down"></i>
       </span>
-      
     </nav>
 
+    <!-- Flex container to aid with desktop responsive design -->
     <div id="outer-container">
 
       <!-- Header -->
@@ -57,9 +57,9 @@
 
       <!-- Main -->
       <main class="container">
+
         <!-- SUBMIT FORM -->
         <section id="new-tweet">
-
           <form action="/tweets" method="POST" enctype="application/x-www-form-urlencoded">
             <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
             <div>
@@ -74,10 +74,7 @@
           <!-- Tweets are loaded here with AJAX -->
         </section>
 
-
       </main>
-
     </div>
-
   </body>
 </html>
