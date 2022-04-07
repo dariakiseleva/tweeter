@@ -91,6 +91,9 @@ const handleFormSubmission = () => {
     //Refresh tweets
     loadTweets();
 
+    //Reset textarea
+    $("#tweet-text").val('');
+
   });
 }
 
