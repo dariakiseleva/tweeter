@@ -93,6 +93,8 @@ const handleFormSubmission = () => {
 
     //Reset textarea
     $("#tweet-text").val('');
+    //Reset character counter
+    $("output.counter").text("140");
 
   });
 }
