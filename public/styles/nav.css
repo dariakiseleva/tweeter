@@ -1,6 +1,6 @@
 nav {
-  position: fixed;
   width: 100%;
+  position: absolute;
 
   display: flex;
   align-items: center;
@@ -10,7 +10,6 @@ nav {
   height: 120px;
   padding: 0 1.5em;
 
-  background: #4056A1;
   color: #FFFFFF;
 }
 
@@ -34,5 +33,5 @@ nav {
  }
 
  i.fa-angles-down{
-  color: coral;
+  color: #6d0000;
  }

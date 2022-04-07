@@ -1,4 +1,4 @@
-body > header {
+#outer-container > header {
   padding: 120px 0 60px 0;
   height: 520px;
   width: 100%;
