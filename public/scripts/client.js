@@ -43,7 +43,8 @@ const renderTweets = function(tweets) {
 }
 
 const errorMessage = (command, errorText) => {
-  if (command==="display"){
+  if (command==="display") {
+    $('#error-message').slideUp();
     const $errorHTML = `
     <div id="error-message">
     <i class="fa-solid fa-circle-exclamation"></i>
@@ -53,7 +54,13 @@ const errorMessage = (command, errorText) => {
     </div>
   `
     $('#new-tweet').prepend($errorHTML);
+    $('#new-tweet').find("#error-message").hide().slideDown();
   }
+
+  if (command==="hide") {
+    $('#error-message').slideUp();
+  }
+
 }
 
 
@@ -77,6 +84,9 @@ const handleFormSubmission = () => {
     //Post the tweet to server
     const submission = $('main > #new-tweet > form').serialize();
     $.ajax({url: '/tweets', method: 'POST', dataType: "xhr", data: submission});
+
+    //Hide error if it exists
+    errorMessage("hide", null);
 
     //Refresh tweets
     loadTweets();
