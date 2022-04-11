@@ -37,3 +37,17 @@
   }
 
 }
+
+
+/*----------Extra styling for screens 500px or narrower------------*/
+
+@media only screen and (max-width: 500px) {
+  #nav-right-side {
+    display: none
+  }
+
+  #tweeter {
+    margin:0 auto;
+    margin-bottom: 25px;
+  }
+}

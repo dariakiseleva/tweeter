@@ -1,6 +1,6 @@
 nav {
   width: 100%;
-  position: absolute;
+  position: fixed;
 
   display: flex;
   align-items: center;
@@ -9,6 +9,9 @@ nav {
   box-sizing: border-box;
   height: 120px;
   padding: 0 1.5em;
+
+  background-color: coral;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 
   color: #FFFFFF;
 }

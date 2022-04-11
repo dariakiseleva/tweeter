@@ -84,13 +84,12 @@ const handleFormSubmission = () => {
 
     //Post the tweet to server
     const submission = $('main > #new-tweet > form').serialize();
-    $.ajax({url: '/tweets', method: 'POST', dataType: "xhr", data: submission});
+
+    //Post tweets and reload
+    $.post("/tweets", submission, () => loadTweets());
 
     //Hide error if it exists
     errorMessage("hide", null);
-
-    //Refresh tweets
-    loadTweets();
 
     //Reset textarea
     $("#tweet-text").val('');
